@@ -940,7 +940,6 @@
           <input id="searchInput" type="text" placeholder="搜尋品項名稱、關鍵字（如：糖德仕、摩天輪、低血糖、英文版）..." />
           <button id="clearSearch" class="clear-btn" title="清除搜尋">×</button>
         </div>
-        <button id="newOnlyBtn" class="new-toggle" type="button">✨ 僅看 2026 新入庫</button>
       </div>
       <div id="categoryPills" class="category-pills"></div>
     </div>
@@ -1031,7 +1030,6 @@
     const state = {
       category: "全部",
       query: "",
-      newOnly: false,
       selected: new Map(),
       modalItem: null,
       modalPageIdx: 0,
@@ -1044,7 +1042,6 @@
     const elPills = document.getElementById("categoryPills");
     const elSearch = document.getElementById("searchInput");
     const elClearSearch = document.getElementById("clearSearch");
-    const elNewOnly = document.getElementById("newOnlyBtn");
     const elGrid = document.getElementById("catalogGrid");
     const elEmpty = document.getElementById("emptyState");
     const elResultInfo = document.getElementById("resultInfo");
@@ -1085,7 +1082,6 @@
       const q = state.query.trim().toLowerCase();
       return ITEMS.filter(item => {
         if (state.category !== "全部" && item.category !== state.category) return false;
-        if (state.newOnly && !item.is_new) return false;
         if (!q) return true;
         const hay = [item.title, item.category, item.summary, item.spec, ...(item.tags || [])].join(" ").toLowerCase();
         return hay.includes(q);
@@ -1134,7 +1130,6 @@
             <div class="card-body">
               <div class="card-cat-row">
                 <div class="card-cat">${item.category}</div>
-                ${item.is_new ? '<span class="badge-new">2026 新入庫</span>' : ""}
               </div>
               <h3 class="card-title" data-action="preview">${item.title}</h3>
               <p class="card-summary">${item.summary}</p>
@@ -1300,12 +1295,6 @@
       state.query = "";
       elSearch.value = "";
       elClearSearch.classList.remove("visible");
-      renderGrid();
-    });
-
-    elNewOnly.addEventListener("click", () => {
-      state.newOnly = !state.newOnly;
-      elNewOnly.classList.toggle("active", state.newOnly);
       renderGrid();
     });
 

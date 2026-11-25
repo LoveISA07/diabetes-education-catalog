@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>糖尿病衛教單張與教具目錄</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #0f4c81;
+      --primary-light: #1e6bb8;
+      --accent: #0d9488;
+      --accent-soft: #ccfbf1;
+      --bg: #f4f7fb;
+      --surface: #ffffff;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --new-bg: #ecfdf5;
+      --new-text: #047857;
+      --radius: 14px;
+      --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
+      --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.08);
+      --shadow-lg: 0 20px 50px rgba(15, 23, 42, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Noto Sans TC", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 96px;
+    }
+
+    /* Hero Header */
+    .hero {
+      background: linear-gradient(135deg, #0b3a66 0%, #0f4c81 55%, #0d7a88 100%);
+      color: #fff;
+      padding: 36px 20px 44px;
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(6px);
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      font-size: clamp(24px, 4vw, 34px);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 8px;
+    }
+
+    .hero p {
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 15px;
+      max-width: 680px;
+    }
+
+    .hero-meta {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    /* Sticky Controls Bar */
+    .controls-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(244, 247, 251, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 20px;
+    }
+
+    .controls-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .search-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .search-box {
+      position: relative;
+      flex: 1;
+      min-width: 240px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 11px 40px 11px 40px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      background: var(--surface);
+      font-size: 15px;
+      font-family: inherit;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .search-box input:focus {
+      border-color: var(--primary-light);
+      box-shadow: 0 0 0 3px rgba(30, 107, 184, 0.12);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 13px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      pointer-events: none;
+    }
+
+    .clear-btn {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      border: none;
+      background: #e2e8f0;
+      color: #475569;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+    }
+
+    .clear-btn.visible {
+      display: flex;
+    }
+
+    .new-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1.5px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 500;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .new-toggle.active {
+      background: var(--new-bg);
+      border-color: #10b981;
+      color: var(--new-text);
+    }
+
+    .category-pills {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+      scrollbar-width: none;
+    }
+
+    .category-pills::-webkit-scrollbar {
+      display: none;
+    }
+
+    .pill {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: #475569;
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 13.5px;
+      font-weight: 500;
+      font-family: inherit;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.18s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pill:hover {
+      border-color: var(--primary-light);
+      color: var(--primary);
+    }
+
+    .pill.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+    }
+
+    .pill .cnt {
+      font-size: 12px;
+      opacity: 0.78;
+    }
+
+    /* Main Content */
+    .main {
+      max-width: 1200px;
+      margin: 24px auto 0;
+      padding: 0 20px;
+    }
+
+    .result-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 20px;
+    }
+
+    /* Card */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: #cbd5e1;
+    }
+
+    .card.selected {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(13, 148, 136, 0.2);
+    }
+
+    .thumb-wrap {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      background: #eef2f7;
+      overflow: hidden;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover .thumb-wrap img {
+      transform: scale(1.03);
+    }
+
+    .badge-new {
+      display: inline-flex;
+      align-items: center;
+      background: var(--new-bg);
+      color: var(--new-text);
+      border: 1px solid #a7f3d0;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 1px 8px;
+      border-radius: 999px;
+      letter-spacing: 0.03em;
+    }
+
+    .card-cat-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 5px;
+    }
+
+    .badge-pages {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: rgba(15, 23, 42, 0.72);
+      color: #fff;
+      font-size: 11.5px;
+      padding: 3px 9px;
+      border-radius: 6px;
+      backdrop-filter: blur(4px);
+    }
+
+    .card-body {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .card-cat {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.4;
+      margin-bottom: 8px;
+      cursor: pointer;
+    }
+
+    .card-title:hover {
+      color: var(--primary);
+    }
+
+    .card-summary {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.55;
+      margin-bottom: 12px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      flex: 1;
+    }
+
+    .card-meta {
+      font-size: 12px;
+      color: #64748b;
+      background: #f8fafc;
+      border: 1px solid #edf2f7;
+      border-radius: 8px;
+      padding: 7px 10px;
+      margin-bottom: 12px;
+    }
+
+    .card-meta div + div {
+      margin-top: 2px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      color: #94a3b8;
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 9px 12px;
+      border-radius: 9px;
+      font-size: 13.5px;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.18s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .btn-preview {
+      background: #eff6ff;
+      color: var(--primary);
+      border-color: #dbeafe;
+    }
+
+    .btn-preview:hover {
+      background: #dbeafe;
+    }
+
+    .btn-select {
+      background: var(--surface);
+      color: #475569;
+      border-color: var(--border);
+    }
+
+    .btn-select:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .btn-select.selected {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    /* Empty State */
+    .empty {
+      text-align: center;
+      padding: 64px 20px;
+      color: var(--muted);
+    }
+
+    /* Modal / Lightbox */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(15, 23, 42, 0.78);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal {
+      background: var(--surface);
+      border-radius: 16px;
+      width: 100%;
+      max-width: 960px;
+      max-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      animation: modalIn 0.18s ease-out;
+    }
+
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(10px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .modal-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .modal-header h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .modal-sub {
+      font-size: 12.5px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .modal-close {
+      border: none;
+      background: #f1f5f9;
+      color: #475569;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-close:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+
+    .modal-tabs {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background: #f8fafc;
+      border-bottom: 1px solid var(--border);
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .tab-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      padding: 6px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: #475569;
+      font-size: 13px;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    .tab-btn.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+    }
+
+    .zoom-hint {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .modal-viewer {
+      flex: 1;
+      overflow: auto;
+      background: #e2e8f0;
+      padding: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .modal-viewer img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 6px 24px rgba(15, 23, 42, 0.16);
+      background: #fff;
+      cursor: zoom-in;
+      transition: width 0.2s ease;
+    }
+
+    .modal-viewer img.zoomed {
+      max-width: none;
+      width: 165%;
+      cursor: zoom-out;
+    }
+
+    .modal-footer {
+      padding: 14px 20px;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .modal-desc {
+      font-size: 13.5px;
+      color: #334155;
+      flex: 1;
+      min-width: 220px;
+    }
+
+    /* Floating Request Cart Bar */
+    .cart-bar {
+      position: fixed;
+      left: 50%;
+      bottom: 20px;
+      transform: translateX(-50%) translateY(120px);
+      z-index: 60;
+      background: #0f172a;
+      color: #fff;
+      padding: 12px 18px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.32);
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+      max-width: calc(100vw - 32px);
+    }
+
+    .cart-bar.visible {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .cart-count {
+      font-size: 14px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .cart-btn {
+      border: none;
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-size: 13.5px;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .cart-btn-copy {
+      background: #14b8a6;
+      color: #fff;
+    }
+
+    .cart-btn-copy:hover {
+      background: #0d9488;
+    }
+
+    .cart-btn-clear {
+      background: rgba(255, 255, 255, 0.14);
+      color: #e2e8f0;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-80px);
+      z-index: 200;
+      background: #047857;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: 0 8px 24px rgba(4, 120, 87, 0.3);
+      transition: transform 0.25s ease;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    footer {
+      max-width: 1200px;
+      margin: 48px auto 0;
+      padding: 20px;
+      text-align: center;
+      font-size: 12.5px;
+      color: #94a3b8;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 640px) {
+      .hero { padding: 26px 16px 32px; }
+      .controls-wrap { padding: 12px 14px; }
+      .main { padding: 0 14px; }
+      .grid { grid-template-columns: 1fr; gap: 16px; }
+      .modal { max-height: 95vh; border-radius: 12px; }
+      .modal-viewer { padding: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">📘 糖尿病衛教教材目錄</div>
+      <h1>糖尿病衛教單張與教具目錄</h1>
+      <p>點擊任一卡片即可放大預覽單張正反面與教具內容；亦可勾選所需品項後一鍵複製需求清單。</p>
+      <div class="hero-meta">
+        <span>📦 收錄品項：<strong id="totalCount">-</strong> 項</span>
+        <span>🗓️ 目錄更新：<strong id="updatedDate">-</strong></span>
+      </div>
+    </div>
+  </header>
+
+  <section class="controls-wrap">
+    <div class="controls-inner">
+      <div class="search-row">
+        <div class="search-box">
+          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input id="searchInput" type="text" placeholder="搜尋品項名稱、關鍵字（如：糖德仕、摩天輪、低血糖、英文版）..." />
+          <button id="clearSearch" class="clear-btn" title="清除搜尋">×</button>
+        </div>
+        <button id="newOnlyBtn" class="new-toggle" type="button">✨ 僅看 2026 新入庫</button>
+      </div>
+      <div id="categoryPills" class="category-pills"></div>
+    </div>
+  </section>
+
+  <main class="main">
+    <div class="result-bar">
+      <span id="resultInfo">載入中...</span>
+    </div>
+    <div id="catalogGrid" class="grid"></div>
+    <div id="emptyState" class="empty" style="display:none;">
+      找不到符合條件的衛教品項，請嘗試其他關鍵字或切換分類。
+    </div>
+  </main>
+
+  <footer>
+    本目錄供醫護人員及合作院所瀏覽衛教教材樣式與規格使用，實際供應情形請以最新庫存為準。
+  </footer>
+
+  <!-- Lightbox Modal -->
+  <div id="modalBackdrop" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal">
+      <div class="modal-header">
+        <div>
+          <h2 id="modalTitle"></h2>
+          <div id="modalSub" class="modal-sub"></div>
+        </div>
+        <button id="modalClose" class="modal-close" aria-label="關閉">×</button>
+      </div>
+      <div class="modal-tabs">
+        <div id="modalTabGroup" class="tab-group"></div>
+        <span class="zoom-hint">💡 點擊圖片可放大 / 還原</span>
+      </div>
+      <div class="modal-viewer">
+        <img id="modalImg" src="" alt="" />
+      </div>
+      <div class="modal-footer">
+        <div id="modalDesc" class="modal-desc"></div>
+        <button id="modalSelectBtn" class="btn btn-select" style="flex:0 0 auto; padding:10px 18px;"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Selection Bar -->
+  <div id="cartBar" class="cart-bar">
+    <span class="cart-count">已選取 <strong id="cartCount">0</strong> 項</span>
+    <button id="copyListBtn" class="cart-btn cart-btn-copy" type="button">📋 複製需求清單</button>
+    <button id="clearListBtn" class="cart-btn cart-btn-clear" type="button">清空</button>
+  </div>
+
+  <div id="toast" class="toast">已複製需求清單到剪貼簿！</div>
+
+  <script src="catalog_data.js"></script>
+  <script>
+    const ITEMS = window.CATALOG_ITEMS || [];
+    const UPDATED = window.CATALOG_UPDATED || "";
+
+    const state = {
+      category: "全部",
+      query: "",
+      newOnly: false,
+      selected: new Set(),
+      modalItem: null,
+      modalPageIdx: 0,
+    };
+
+    const categories = ["全部", ...Array.from(new Set(ITEMS.map(i => i.category)))];
+
+    const elTotal = document.getElementById("totalCount");
+    const elUpdated = document.getElementById("updatedDate");
+    const elPills = document.getElementById("categoryPills");
+    const elSearch = document.getElementById("searchInput");
+    const elClearSearch = document.getElementById("clearSearch");
+    const elNewOnly = document.getElementById("newOnlyBtn");
+    const elGrid = document.getElementById("catalogGrid");
+    const elEmpty = document.getElementById("emptyState");
+    const elResultInfo = document.getElementById("resultInfo");
+
+    const elBackdrop = document.getElementById("modalBackdrop");
+    const elModalTitle = document.getElementById("modalTitle");
+    const elModalSub = document.getElementById("modalSub");
+    const elModalTabs = document.getElementById("modalTabGroup");
+    const elModalImg = document.getElementById("modalImg");
+    const elModalDesc = document.getElementById("modalDesc");
+    const elModalSelectBtn = document.getElementById("modalSelectBtn");
+    const elModalClose = document.getElementById("modalClose");
+
+    const elCartBar = document.getElementById("cartBar");
+    const elCartCount = document.getElementById("cartCount");
+    const elCopyListBtn = document.getElementById("copyListBtn");
+    const elClearListBtn = document.getElementById("clearListBtn");
+    const elToast = document.getElementById("toast");
+
+    elTotal.textContent = ITEMS.length;
+    elUpdated.textContent = UPDATED;
+
+    function getFiltered() {
+      const q = state.query.trim().toLowerCase();
+      return ITEMS.filter(item => {
+        if (state.category !== "全部" && item.category !== state.category) return false;
+        if (state.newOnly && !item.is_new) return false;
+        if (!q) return true;
+        const hay = [item.title, item.category, item.summary, item.spec, ...(item.tags || [])].join(" ").toLowerCase();
+        return hay.includes(q);
+      });
+    }
+
+    function renderPills() {
+      elPills.innerHTML = categories.map(cat => {
+        const cnt = cat === "全部" ? ITEMS.length : ITEMS.filter(i => i.category === cat).length;
+        const active = state.category === cat ? "active" : "";
+        return `<button class="pill ${active}" data-cat="${cat}" type="button">${cat} <span class="cnt">(${cnt})</span></button>`;
+      }).join("");
+
+      elPills.querySelectorAll(".pill").forEach(btn => {
+        btn.addEventListener("click", () => {
+          state.category = btn.dataset.cat;
+          renderPills();
+          renderGrid();
+        });
+      });
+    }
+
+    function renderGrid() {
+      const list = getFiltered();
+      elResultInfo.textContent = `顯示 ${list.length} / ${ITEMS.length} 項教材`;
+
+      if (list.length === 0) {
+        elGrid.innerHTML = "";
+        elEmpty.style.display = "block";
+        return;
+      }
+      elEmpty.style.display = "none";
+
+      elGrid.innerHTML = list.map(item => {
+        const isSel = state.selected.has(item.id);
+        const cover = item.images[0] ? item.images[0].thumb : "";
+        const pageBadge = item.images.length > 1 ? `共 ${item.images.length} 面` : `單面`;
+        return `
+          <article class="card ${isSel ? "selected" : ""}" data-id="${item.id}">
+            <div class="thumb-wrap" data-action="preview">
+              <img src="${cover}" alt="${item.title}" loading="lazy" />
+              <span class="badge-pages">${pageBadge}</span>
+            </div>
+            <div class="card-body">
+              <div class="card-cat-row">
+                <div class="card-cat">${item.category}</div>
+                ${item.is_new ? '<span class="badge-new">2026 新入庫</span>' : ""}
+              </div>
+              <h3 class="card-title" data-action="preview">${item.title}</h3>
+              <p class="card-summary">${item.summary}</p>
+              <div class="card-meta">
+                <div>📄 ${item.spec}</div>
+              </div>
+              <div class="card-actions">
+                <button class="btn btn-preview" data-action="preview" type="button">🔍 預覽內容</button>
+                <button class="btn btn-select ${isSel ? "selected" : ""}" data-action="toggle" type="button">
+                  ${isSel ? "✓ 已加入清單" : "+ 加入清單"}
+                </button>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join("");
+
+      elGrid.querySelectorAll(".card").forEach(card => {
+        const id = card.dataset.id;
+        card.querySelectorAll('[data-action="preview"]').forEach(el => {
+          el.addEventListener("click", () => openModal(id));
+        });
+        card.querySelector('[data-action="toggle"]').addEventListener("click", () => toggleSelect(id));
+      });
+    }
+
+    function toggleSelect(id) {
+      if (state.selected.has(id)) {
+        state.selected.delete(id);
+      } else {
+        state.selected.add(id);
+      }
+      updateCartBar();
+      renderGrid();
+      if (state.modalItem && state.modalItem.id === id) {
+        updateModalSelectBtn();
+      }
+    }
+
+    function updateCartBar() {
+      const n = state.selected.size;
+      elCartCount.textContent = n;
+      elCartBar.classList.toggle("visible", n > 0);
+    }
+
+    function openModal(id) {
+      const item = ITEMS.find(i => i.id === id);
+      if (!item) return;
+      state.modalItem = item;
+      state.modalPageIdx = 0;
+
+      elModalTitle.textContent = item.title;
+      elModalSub.textContent = `${item.category} ｜ ${item.spec}`;
+      elModalDesc.textContent = item.summary;
+      renderModalImage();
+      updateModalSelectBtn();
+
+      elBackdrop.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function renderModalImage() {
+      const item = state.modalItem;
+      if (!item) return;
+      const imgObj = item.images[state.modalPageIdx];
+      elModalImg.classList.remove("zoomed");
+      elModalImg.src = imgObj.full;
+      elModalImg.alt = `${item.title} - ${imgObj.label}`;
+
+      elModalTabs.innerHTML = item.images.map((im, idx) => `
+        <button class="tab-btn ${idx === state.modalPageIdx ? "active" : ""}" data-idx="${idx}" type="button">
+          ${im.label}
+        </button>
+      `).join("");
+
+      elModalTabs.querySelectorAll(".tab-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          state.modalPageIdx = Number(btn.dataset.idx);
+          renderModalImage();
+        });
+      });
+    }
+
+    function updateModalSelectBtn() {
+      const item = state.modalItem;
+      if (!item) return;
+      const isSel = state.selected.has(item.id);
+      elModalSelectBtn.className = `btn btn-select ${isSel ? "selected" : ""}`;
+      elModalSelectBtn.textContent = isSel ? "✓ 已加入需求清單" : "+ 加入需求清單";
+    }
+
+    function closeModal() {
+      elBackdrop.classList.remove("open");
+      document.body.style.overflow = "";
+      state.modalItem = null;
+    }
+
+    function showToast(msg) {
+      elToast.textContent = msg;
+      elToast.classList.add("show");
+      setTimeout(() => elToast.classList.remove("show"), 2400);
+    }
+
+    // Event listeners
+    elSearch.addEventListener("input", e => {
+      state.query = e.target.value;
+      elClearSearch.classList.toggle("visible", state.query.length > 0);
+      renderGrid();
+    });
+
+    elClearSearch.addEventListener("click", () => {
+      state.query = "";
+      elSearch.value = "";
+      elClearSearch.classList.remove("visible");
+      renderGrid();
+    });
+
+    elNewOnly.addEventListener("click", () => {
+      state.newOnly = !state.newOnly;
+      elNewOnly.classList.toggle("active", state.newOnly);
+      renderGrid();
+    });
+
+    elModalClose.addEventListener("click", closeModal);
+    elBackdrop.addEventListener("click", e => {
+      if (e.target === elBackdrop) closeModal();
+    });
+
+    elModalImg.addEventListener("click", () => {
+      elModalImg.classList.toggle("zoomed");
+    });
+
+    elModalSelectBtn.addEventListener("click", () => {
+      if (state.modalItem) toggleSelect(state.modalItem.id);
+    });
+
+    document.addEventListener("keydown", e => {
+      if (!state.modalItem) return;
+      if (e.key === "Escape") closeModal();
+      if (e.key === "ArrowRight" && state.modalPageIdx < state.modalItem.images.length - 1) {
+        state.modalPageIdx++;
+        renderModalImage();
+      }
+      if (e.key === "ArrowLeft" && state.modalPageIdx > 0) {
+        state.modalPageIdx--;
+        renderModalImage();
+      }
+    });
+
+    elCopyListBtn.addEventListener("click", async () => {
+      const picked = ITEMS.filter(i => state.selected.has(i.id));
+      const lines = [
+        "【糖尿病衛教教材需求清單】",
+        ...picked.map((item, idx) => `${idx + 1}. ${item.title}`),
+      ].join("\n");
+
+      try {
+        await navigator.clipboard.writeText(lines);
+        showToast(`已複製 ${picked.length} 項需求清單到剪貼簿！`);
+      } catch {
+        prompt("請複製以下需求清單：", lines);
+      }
+    });
+
+    elClearListBtn.addEventListener("click", () => {
+      state.selected.clear();
+      updateCartBar();
+      renderGrid();
+    });
+
+    // Init
+    renderPills();
+    renderGrid();
+  </script>
+</body>
+</html>

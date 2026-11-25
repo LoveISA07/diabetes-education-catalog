@@ -443,6 +443,91 @@
       border-color: var(--accent);
     }
 
+    /* Quantity Stepper */
+    .qty-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      background: #f0fdfa;
+      border: 1px solid #99f6e4;
+      border-radius: 9px;
+      padding: 6px 10px;
+      margin-bottom: 10px;
+    }
+
+    .qty-label {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #0f766e;
+    }
+
+    .qty-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .qty-btn {
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      border: 1px solid #cbd5e1;
+      background: #fff;
+      color: #334155;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .qty-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .qty-input {
+      width: 54px;
+      height: 26px;
+      text-align: center;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 13.5px;
+      font-weight: 600;
+      font-family: inherit;
+      color: var(--text);
+      background: #fff;
+      outline: none;
+      -moz-appearance: textfield;
+    }
+
+    .qty-input:focus {
+      border-color: var(--accent);
+    }
+
+    .qty-input::-webkit-outer-spin-button,
+    .qty-input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    .qty-unit {
+      font-size: 13px;
+      font-weight: 600;
+      color: #0f766e;
+      margin-left: 2px;
+    }
+
+    .modal-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
     /* Empty State */
     .empty {
       text-align: center;
@@ -768,7 +853,15 @@
       </div>
       <div class="modal-footer">
         <div id="modalDesc" class="modal-desc"></div>
-        <button id="modalSelectBtn" class="btn btn-select" style="flex:0 0 auto; padding:10px 18px;"></button>
+        <div class="modal-actions">
+          <div id="modalQtyBox" class="qty-box" style="display:none; background:#f0fdfa; border:1px solid #99f6e4; padding:5px 10px; border-radius:9px;">
+            <button id="modalQtyMinus" class="qty-btn" type="button">−</button>
+            <input id="modalQtyInput" class="qty-input" type="number" min="1" value="1" />
+            <button id="modalQtyPlus" class="qty-btn" type="button">+</button>
+            <span id="modalQtyUnit" class="qty-unit">本</span>
+          </div>
+          <button id="modalSelectBtn" class="btn btn-select" style="flex:0 0 auto; padding:10px 18px;"></button>
+        </div>
       </div>
     </div>
   </div>
@@ -791,7 +884,7 @@
       category: "全部",
       query: "",
       newOnly: false,
-      selected: new Set(),
+      selected: new Map(),
       modalItem: null,
       modalPageIdx: 0,
     };
@@ -814,6 +907,11 @@
     const elModalTabs = document.getElementById("modalTabGroup");
     const elModalImg = document.getElementById("modalImg");
     const elModalDesc = document.getElementById("modalDesc");
+    const elModalQtyBox = document.getElementById("modalQtyBox");
+    const elModalQtyMinus = document.getElementById("modalQtyMinus");
+    const elModalQtyInput = document.getElementById("modalQtyInput");
+    const elModalQtyPlus = document.getElementById("modalQtyPlus");
+    const elModalQtyUnit = document.getElementById("modalQtyUnit");
     const elModalSelectBtn = document.getElementById("modalSelectBtn");
     const elModalClose = document.getElementById("modalClose");
 
@@ -866,6 +964,8 @@
 
       elGrid.innerHTML = list.map(item => {
         const isSel = state.selected.has(item.id);
+        const qty = isSel ? state.selected.get(item.id) : 1;
+        const unit = item.unit || "本";
         const cover = item.images[0] ? item.images[0].thumb : "";
         const pageBadge = item.images.length > 1 ? `共 ${item.images.length} 面` : `單面`;
         return `
@@ -884,6 +984,17 @@
               <div class="card-meta">
                 <div>📄 ${item.spec}</div>
               </div>
+              ${isSel ? `
+                <div class="qty-row">
+                  <span class="qty-label">需求數量</span>
+                  <div class="qty-box">
+                    <button class="qty-btn" data-action="minus" type="button">−</button>
+                    <input class="qty-input" data-action="qty" type="number" min="1" value="${qty}" />
+                    <button class="qty-btn" data-action="plus" type="button">+</button>
+                    <span class="qty-unit">${unit}</span>
+                  </div>
+                </div>
+              ` : ""}
               <div class="card-actions">
                 <button class="btn btn-preview" data-action="preview" type="button">🔍 預覽內容</button>
                 <button class="btn btn-select ${isSel ? "selected" : ""}" data-action="toggle" type="button">
@@ -901,6 +1012,28 @@
           el.addEventListener("click", () => openModal(id));
         });
         card.querySelector('[data-action="toggle"]').addEventListener("click", () => toggleSelect(id));
+
+        const minusBtn = card.querySelector('[data-action="minus"]');
+        const plusBtn = card.querySelector('[data-action="plus"]');
+        const qtyInput = card.querySelector('[data-action="qty"]');
+        if (minusBtn) minusBtn.addEventListener("click", () => stepQty(id, -1));
+        if (plusBtn) plusBtn.addEventListener("click", () => stepQty(id, 1));
+        if (qtyInput) {
+          qtyInput.addEventListener("input", e => {
+            const val = parseInt(e.target.value, 10);
+            if (!isNaN(val) && val >= 1) {
+              state.selected.set(id, val);
+              updateCartBar();
+            }
+          });
+          qtyInput.addEventListener("blur", e => {
+            const val = parseInt(e.target.value, 10);
+            const clean = isNaN(val) || val < 1 ? 1 : val;
+            e.target.value = clean;
+            state.selected.set(id, clean);
+            updateCartBar();
+          });
+        }
       });
     }
 
@@ -908,8 +1041,19 @@
       if (state.selected.has(id)) {
         state.selected.delete(id);
       } else {
-        state.selected.add(id);
+        state.selected.set(id, 1);
       }
+      updateCartBar();
+      renderGrid();
+      if (state.modalItem && state.modalItem.id === id) {
+        updateModalSelectBtn();
+      }
+    }
+
+    function stepQty(id, delta) {
+      const cur = state.selected.get(id) || 1;
+      const next = Math.max(1, cur + delta);
+      state.selected.set(id, next);
       updateCartBar();
       renderGrid();
       if (state.modalItem && state.modalItem.id === id) {
@@ -967,6 +1111,11 @@
       const isSel = state.selected.has(item.id);
       elModalSelectBtn.className = `btn btn-select ${isSel ? "selected" : ""}`;
       elModalSelectBtn.textContent = isSel ? "✓ 已加入需求清單" : "+ 加入需求清單";
+      elModalQtyBox.style.display = isSel ? "inline-flex" : "none";
+      if (isSel) {
+        elModalQtyInput.value = state.selected.get(item.id) || 1;
+        elModalQtyUnit.textContent = item.unit || "本";
+      }
     }
 
     function closeModal() {
@@ -1014,6 +1163,34 @@
       if (state.modalItem) toggleSelect(state.modalItem.id);
     });
 
+    elModalQtyMinus.addEventListener("click", () => {
+      if (state.modalItem) stepQty(state.modalItem.id, -1);
+    });
+
+    elModalQtyPlus.addEventListener("click", () => {
+      if (state.modalItem) stepQty(state.modalItem.id, 1);
+    });
+
+    elModalQtyInput.addEventListener("input", e => {
+      if (!state.modalItem) return;
+      const val = parseInt(e.target.value, 10);
+      if (!isNaN(val) && val >= 1) {
+        state.selected.set(state.modalItem.id, val);
+        renderGrid();
+        updateCartBar();
+      }
+    });
+
+    elModalQtyInput.addEventListener("blur", e => {
+      if (!state.modalItem) return;
+      const val = parseInt(e.target.value, 10);
+      const clean = isNaN(val) || val < 1 ? 1 : val;
+      e.target.value = clean;
+      state.selected.set(state.modalItem.id, clean);
+      renderGrid();
+      updateCartBar();
+    });
+
     document.addEventListener("keydown", e => {
       if (!state.modalItem) return;
       if (e.key === "Escape") closeModal();
@@ -1031,7 +1208,11 @@
       const picked = ITEMS.filter(i => state.selected.has(i.id));
       const lines = [
         "【糖尿病衛教教材需求清單】",
-        ...picked.map((item, idx) => `${idx + 1}. ${item.title}`),
+        ...picked.map((item, idx) => {
+          const qty = state.selected.get(item.id) || 1;
+          const unit = item.unit || "本";
+          return `${idx + 1}. ${item.title} x ${qty} ${unit}`;
+        }),
       ].join("\n");
 
       try {

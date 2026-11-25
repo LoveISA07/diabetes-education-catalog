@@ -24,7 +24,8 @@ window.CATALOG_ITEMS = [
         "thumb": "images/toujeo_zh_2_thumb.jpg",
         "label": "背面"
       }
-    ]
+    ],
+    "unit": "本"
   },
   {
     "id": "toujeo_en",
@@ -50,7 +51,8 @@ window.CATALOG_ITEMS = [
         "thumb": "images/toujeo_en_2_thumb.jpg",
         "label": "Page 2"
       }
-    ]
+    ],
+    "unit": "本"
   },
   {
     "id": "toujeo_vi",
@@ -76,7 +78,8 @@ window.CATALOG_ITEMS = [
         "thumb": "images/toujeo_vi_2_thumb.jpg",
         "label": "背面"
       }
-    ]
+    ],
+    "unit": "本"
   },
   {
     "id": "toujeo_id",
@@ -102,7 +105,8 @@ window.CATALOG_ITEMS = [
         "thumb": "images/toujeo_id_2_thumb.jpg",
         "label": "背面"
       }
-    ]
+    ],
+    "unit": "本"
   },
   {
     "id": "lantus",
@@ -127,7 +131,8 @@ window.CATALOG_ITEMS = [
         "thumb": "images/lantus_2_thumb.jpg",
         "label": "背面"
       }
-    ]
+    ],
+    "unit": "本"
   },
   {
     "id": "soliqua",
@@ -152,7 +157,8 @@ window.CATALOG_ITEMS = [
         "thumb": "images/soliqua_2_thumb.jpg",
         "label": "背面"
       }
-    ]
+    ],
+    "unit": "本"
   },
   {
     "id": "apidra",
@@ -177,7 +183,8 @@ window.CATALOG_ITEMS = [
         "thumb": "images/apidra_2_thumb.jpg",
         "label": "背面"
       }
-    ]
+    ],
+    "unit": "本"
   },
   {
     "id": "know_dm",
@@ -202,7 +209,8 @@ window.CATALOG_ITEMS = [
         "thumb": "images/know_dm_2_thumb.jpg",
         "label": "背面"
       }
-    ]
+    ],
+    "unit": "本"
   },
   {
     "id": "know_insulin",
@@ -227,7 +235,8 @@ window.CATALOG_ITEMS = [
         "thumb": "images/know_insulin_2_thumb.jpg",
         "label": "背面"
       }
-    ]
+    ],
+    "unit": "本"
   },
   {
     "id": "beta_cell_da",
@@ -253,7 +262,8 @@ window.CATALOG_ITEMS = [
         "thumb": "images/beta_cell_da_2_thumb.jpg",
         "label": "第 2 頁"
       }
-    ]
+    ],
+    "unit": "份"
   },
   {
     "id": "med_adherence",
@@ -278,7 +288,8 @@ window.CATALOG_ITEMS = [
         "thumb": "images/med_adherence_2_thumb.jpg",
         "label": "背面"
       }
-    ]
+    ],
+    "unit": "本"
   },
   {
     "id": "hypoglycemia",
@@ -303,7 +314,8 @@ window.CATALOG_ITEMS = [
         "thumb": "images/hypoglycemia_2_thumb.jpg",
         "label": "背面"
       }
-    ]
+    ],
+    "unit": "本"
   },
   {
     "id": "hyperglycemia",
@@ -328,7 +340,8 @@ window.CATALOG_ITEMS = [
         "thumb": "images/hyperglycemia_2_thumb.jpg",
         "label": "背面"
       }
-    ]
+    ],
+    "unit": "本"
   },
   {
     "id": "ckd",
@@ -353,7 +366,8 @@ window.CATALOG_ITEMS = [
         "thumb": "images/ckd_2_thumb.jpg",
         "label": "背面"
       }
-    ]
+    ],
+    "unit": "本"
   },
   {
     "id": "foot_care",
@@ -378,7 +392,8 @@ window.CATALOG_ITEMS = [
         "thumb": "images/foot_care_2_thumb.jpg",
         "label": "背面"
       }
-    ]
+    ],
+    "unit": "本"
   },
   {
     "id": "exercise",
@@ -403,7 +418,8 @@ window.CATALOG_ITEMS = [
         "thumb": "images/exercise_2_thumb.jpg",
         "label": "背面"
       }
-    ]
+    ],
+    "unit": "本"
   },
   {
     "id": "nutrition",
@@ -428,7 +444,8 @@ window.CATALOG_ITEMS = [
         "thumb": "images/nutrition_2_thumb.jpg",
         "label": "背面"
       }
-    ]
+    ],
+    "unit": "本"
   },
   {
     "id": "how_much_eat",
@@ -453,7 +470,8 @@ window.CATALOG_ITEMS = [
         "thumb": "images/how_much_eat_2_thumb.jpg",
         "label": "背面"
       }
-    ]
+    ],
+    "unit": "本"
   },
   {
     "id": "wheel_grains",
@@ -478,7 +496,8 @@ window.CATALOG_ITEMS = [
         "thumb": "images/wheel_grains_2_thumb.jpg",
         "label": "全穀類 (二)"
       }
-    ]
+    ],
+    "unit": "本"
   },
   {
     "id": "wheel_protein",
@@ -503,7 +522,8 @@ window.CATALOG_ITEMS = [
         "thumb": "images/wheel_protein_2_thumb.jpg",
         "label": "豆魚類 (二)"
       }
-    ]
+    ],
+    "unit": "本"
   },
   {
     "id": "wheel_veggies",
@@ -528,7 +548,8 @@ window.CATALOG_ITEMS = [
         "thumb": "images/wheel_veggies_2_thumb.jpg",
         "label": "蔬菜類 (二)"
       }
-    ]
+    ],
+    "unit": "本"
   },
   {
     "id": "wheel_fruits",
@@ -553,7 +574,8 @@ window.CATALOG_ITEMS = [
         "thumb": "images/wheel_fruits_2_thumb.jpg",
         "label": "水果類 (二)"
       }
-    ]
+    ],
+    "unit": "本"
   },
   {
     "id": "fasting_chart",
@@ -578,7 +600,8 @@ window.CATALOG_ITEMS = [
         "thumb": "images/fasting_chart_2_thumb.jpg",
         "label": "背面"
       }
-    ]
+    ],
+    "unit": "本"
   },
   {
     "id": "logbook_basic",
@@ -603,7 +626,8 @@ window.CATALOG_ITEMS = [
         "thumb": "images/logbook_basic_2_thumb.jpg",
         "label": "內頁參考"
       }
-    ]
+    ],
+    "unit": "本"
   },
   {
     "id": "logbook_diet",
@@ -628,7 +652,8 @@ window.CATALOG_ITEMS = [
         "thumb": "images/logbook_diet_2_thumb.jpg",
         "label": "內頁參考"
       }
-    ]
+    ],
+    "unit": "本"
   },
   {
     "id": "rotation_card",
@@ -648,7 +673,8 @@ window.CATALOG_ITEMS = [
         "thumb": "images/rotation_card_1_thumb.jpg",
         "label": "實體圖樣"
       }
-    ]
+    ],
+    "unit": "張"
   },
   {
     "id": "needle_sticker",
@@ -668,6 +694,7 @@ window.CATALOG_ITEMS = [
         "thumb": "images/needle_sticker_1_thumb.jpg",
         "label": "貼紙樣式"
       }
-    ]
+    ],
+    "unit": "張"
   }
 ];

@@ -850,6 +850,15 @@
       font-size: 14px;
     }
 
+    .cart-tip {
+      padding: 10px 20px;
+      background: #eff6ff;
+      border-top: 1px solid #dbeafe;
+      color: #1e40af;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
     /* Toast */
     .toast {
       position: fixed;
@@ -912,7 +921,7 @@
     <div class="hero-inner">
       <div class="hero-badge">📘 糖尿病衛教教材目錄</div>
       <h1>糖尿病衛教單張與教具目錄</h1>
-      <p>點擊任一卡片即可放大預覽單張正反面與教具內容；亦可勾選所需品項後一鍵複製需求清單。</p>
+      <p>點擊任一卡片即可放大預覽單張正反面與教具內容；勾選所需品項與數量後，按下「<strong>📋 複製需求清單</strong>」，即可直接在 <strong>LINE 對話窗貼上</strong>並發送給<strong>賽諾菲衛教師</strong>。</p>
       <div class="hero-meta">
         <span>📦 收錄品項：<strong id="totalCount">-</strong> 項</span>
         <span>🗓️ 目錄更新：<strong id="updatedDate">-</strong></span>
@@ -994,6 +1003,9 @@
         <button id="cartModalClose" class="modal-close" aria-label="關閉">×</button>
       </div>
       <div id="cartModalList" class="cart-list"></div>
+      <div class="cart-tip">
+        💡 按下「<strong>📋 複製需求清單</strong>」後，可直接在 <strong>LINE 對話窗貼上</strong>品項內容，發送給<strong>賽諾菲衛教師</strong>。
+      </div>
       <div class="modal-footer">
         <button id="cartModalClearBtn" class="cart-remove-btn" style="padding:9px 14px; font-size:13.5px;" type="button">清空全部</button>
         <button id="cartModalCopyBtn" class="cart-btn cart-btn-copy" style="padding:10px 18px;" type="button">📋 複製需求清單</button>
@@ -1455,9 +1467,9 @@
 
       try {
         await navigator.clipboard.writeText(lines);
-        showToast(`已複製 ${picked.length} 項需求清單到剪貼簿！`);
+        showToast(`已複製 ${picked.length} 項清單！請至 LINE 對話窗貼上發送給賽諾菲衛教師`);
       } catch {
-        prompt("請複製以下需求清單：", lines);
+        prompt("請複製以下需求清單，並貼上發送給賽諾菲衛教師：", lines);
       }
     }
 
